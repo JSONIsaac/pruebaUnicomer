@@ -1,0 +1,72 @@
+-- Eliminar la tabla "usuarios"
+DROP TABLE usuarios;
+
+-- Eliminar la tabla "tareas"
+DROP TABLE tareas;
+
+SELECT * FROM usuarios;
+
+SELECT * FROM tareas;
+
+CREATE TABLE usuarios (
+    id NUMBER PRIMARY KEY,
+    full_name VARCHAR2(50),
+    email VARCHAR2(50),
+    phone_number NUMBER,
+    phone_extension NUMBER
+);
+
+
+CREATE TABLE tareas (
+    id NUMBER PRIMARY KEY,
+    name VARCHAR2(255),
+    due_date DATE,
+    priority VARCHAR2(10),
+    status VARCHAR2(50),
+    assigned_user_id NUMBER,
+    FOREIGN KEY (assigned_user_id) REFERENCES usuarios(id)
+);
+
+
+INSERT INTO usuarios (id, full_name, email, phone_number, phone_extension)
+VALUES (1, 'Carlos Daniel Marcucci Rivera', 'carlos_marcucci@unicomer.com', 10102020, 502);
+
+INSERT INTO usuarios (id, full_name, email, phone_number, phone_extension)
+VALUES (2, 'Yeison Isaac Gomez Castro', 'yeisaac19829@gmail.com', 48791596, 502);
+
+
+INSERT INTO tareas (id, name, due_date, priority, status, assigned_user_id)
+VALUES (1, 'Realizar API para mensajes de texto', TO_DATE('2022-02-03', 'YYYY-MM-DD'), 'P2', 'ABIERTO', 1);
+
+INSERT INTO tareas (id, name, due_date, priority, status, assigned_user_id)
+VALUES (2, 'Realizar la prueba tecnica', TO_DATE('2023-07-27', 'YYYY-MM-DD'), 'P1', 'COMPLETADO', 2);
+
+
+-- AI
+
+CREATE SEQUENCE usuario_sequence
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE;
+
+
+CREATE SEQUENCE tarea_sequence
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE;
+
+
+http://localhost:8080/ords/test/tareasU/
+
+http://localhost:8080/ords/test/usuariosU/
+
+
+
+GET
+
+http://localhost:8080/ords/test/tareas/tareas/
+POST
+
+PUT
+
+DELETE
