@@ -18,7 +18,7 @@ public class Usuario {
     @Id
     @SequenceGenerator(name = "usuario_sequence", sequenceName = "usuario_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_sequence")
-    @JsonIgnore // Excluir el campo "id" del JSON
+    @JsonIgnore
 
     private Long id;
 
@@ -73,6 +73,4 @@ public class Usuario {
     public void setPhoneExtension(Integer phoneExtension) {
         this.phoneExtension = phoneExtension;
     }
-
-    // Otras propiedades, métodos y constructores (si es necesario)
 }

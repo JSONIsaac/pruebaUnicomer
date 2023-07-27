@@ -21,7 +21,7 @@ public class Tarea {
     @Id
     @SequenceGenerator(name = "tarea_sequence", sequenceName = "tarea_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tarea_sequence")
-    @JsonIgnore // Excluir el campo "id" del JSON
+    @JsonIgnore
     private Long id;
 
     private String name;
@@ -35,8 +35,6 @@ public class Tarea {
     @ManyToOne
     @JoinColumn(name = "assigned_user_id")
     private Usuario assigned;
-
-    // Getters y setters (¡Asegúrate de tenerlos correctamente definidos!)
 
     public Long getId() {
         return id;
